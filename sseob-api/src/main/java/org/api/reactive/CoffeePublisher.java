@@ -32,7 +32,7 @@ public class CoffeePublisher implements Flow.Publisher<Coffee> {
         CompletableFuture.runAsync(() -> {
           // 커피 제작에 1초가 소요됩니다.
           try {
-            Thread.sleep(1_000);
+            Thread.sleep(2_000);
             subscriber.onNext(new Coffee("Latte", "Medium"));
           } catch (InterruptedException e) {
             throw new RuntimeException("커피 제작 실패");

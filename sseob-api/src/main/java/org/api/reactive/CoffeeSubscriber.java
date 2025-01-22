@@ -5,6 +5,7 @@ import java.util.concurrent.Flow;
 public class CoffeeSubscriber implements Flow.Subscriber<Coffee> {
 
   private Flow.Subscription subscription;
+  private int coffeeCount = 0;
   
   @Override
   public void onSubscribe(Flow.Subscription subscription) {
@@ -14,6 +15,12 @@ public class CoffeeSubscriber implements Flow.Subscriber<Coffee> {
 
   @Override
   public void onNext(Coffee item) {
+
+    coffeeCount += 1;
+    if (coffeeCount < 2) {
+      subscription.request(1);
+    }
+    
     System.out.println(item.toString());
   }
 

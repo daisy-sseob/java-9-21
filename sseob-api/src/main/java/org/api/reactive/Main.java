@@ -9,7 +9,7 @@ public class Main {
     
     publisher.subscribe(subscriber);
     
-    Thread.sleep(10_000);
+    Thread.sleep(5_000);
 
   }
 }
